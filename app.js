@@ -6,13 +6,22 @@ const app = Vue.createApp({
   data() {
     return {
       playerHealth: 100,
-      monsterHealth: 150,
+      monsterHealth: 100,
     };
+  },
+  computed: {
+    monsterBarStyles() {
+      return { width: this.monsterHealth + '%' };
+    },
+    playerBarStyles() {
+      return { width: this.playerHealth + '%' };
+    },
   },
   methods: {
     attackMonster() {
       const attackValue = getRandonValue(5, 12);
       this.monsterHealth -= attackValue;
+      this.attackPlayer();
     },
     attackPlayer() {
       const attackValue = getRandonValue(8, 15);
