@@ -81,6 +81,9 @@ const app = Vue.createApp({
       }
       this.attackPlayer();
     },
+    surender() {
+      this.winner = 'monster';
+    },
   },
 });
 
